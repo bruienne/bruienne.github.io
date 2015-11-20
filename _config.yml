@@ -1,0 +1,30 @@
+# Dependencies
+markdown:         kramdown
+kramdown:
+  input: GFM
+
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            Enterprise Mac
+tagline:          'Macs, Enterprise, good times.'
+description:      'Macs, Enterprise, good times.'
+url:              http://enterprisemac.bruienne.com
+baseurl:          /
+excerpt_separator: <!--more-->
+
+author:
+  name:           'Pepijn bruienne'
+  url:            https://twitter.com/bruienne
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.com/bruienne/bruienne.github.io
