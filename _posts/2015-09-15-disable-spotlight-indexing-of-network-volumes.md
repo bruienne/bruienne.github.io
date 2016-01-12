@@ -32,13 +32,13 @@ To be able to re-enable indexing for certain external volumes, run this command 
 
 ## Diving in
 
-Some poking around turned the attention to `mds` by way of `/System/Library/LaunchDaemons/com.apple.metadata.mds.plist` which invokes the `mds` binary at boot time. Next step was to open the executable in everyone's favorite disassembler [Hopper](http://www.hopperapp.com/) in order to see what we could see. I'm by no means a Hopper pro so I will typically perform some initial **"Labels"** or **"Strings"** searches for terms that are of interest. In this case I went with the generic *"Preferences"* query to get an idea of how and where `mds` might get and set its preferences. That initial search turned up some decent results as seen in Figure 1.<figure id="attachment_563" class="thumbnail wp-caption aligncenter" style="width: 510px">
+Some poking around turned the attention to `mds` by way of `/System/Library/LaunchDaemons/com.apple.metadata.mds.plist` which invokes the `mds` binary at boot time. Next step was to open the executable in everyone's favorite disassembler [Hopper](http://www.hopperapp.com/) in order to see what we could see. I'm by no means a Hopper pro so I will typically perform some initial **"Labels"** or **"Strings"** searches for terms that are of interest. In this case I went with the generic *"Preferences"* query to get an idea of how and where `mds` might get and set its preferences. That initial search turned up some decent results as seen in Figure 1.
 
-[<img src="http://enterprisemac.bruienne.com/wp-content/uploads/2015/09/mds-hopper-1.png" alt="Figure 1" width="500" height="507" class="size-full wp-image-563" />][1]<figcaption class="caption wp-caption-text">Figure 1 - "Preferences" search</figcaption></figure>
+[<img src="{{ site.baseurl }}static/mds-hopper-1.png" alt="Figure 1" width="500" height="507" class="size-full wp-image-563" />][1]<em>Figure 1 - "Preferences" search</em>
 
-Working in Hopper involves quite a bit of following rabbit holes down dead ends so I won't bore the reader with the results of following each of these results into the decompiled code but eventually I came across a rather apropos block of pseudo-code courtesy of Hopper's handy pseudo-code generator as seen in Figure 2.<figure id="attachment_566" class="thumbnail wp-caption aligncenter" style="width: 810px">
+Working in Hopper involves quite a bit of following rabbit holes down dead ends so I won't bore the reader with the results of following each of these results into the decompiled code but eventually I came across a rather apropos block of pseudo-code courtesy of Hopper's handy pseudo-code generator as seen in Figure 2.
 
-<img src="http://enterprisemac.bruienne.com/wp-content/uploads/2015/09/mds-hopper-21.png" alt="Figure 2" width="800" height="593" class="size-full wp-image-566" /><figcaption class="caption wp-caption-text">Figure 2 - Pseudo-code</figcaption></figure>
+<img src="{{ site.baseurl }}static/mds-hopper-21.png" alt="Figure 2" width="800" height="593" class="size-full wp-image-566" /><em>Figure 2 - Pseudo-code</em>
 
 Highlighted are two preference keys that are called as `CFPreferencesGetAppBooleanValue` variables named `ExternalVolumesIgnore` and` ExternalVolumesDefaultOff` - exactly what we were hoping to find! Helpfully, this same block of code also contains some logging that describes exactly what the two keys do, leaving us less guesswork. The `ExternalVolumesIgnore` key logging string says:
 
@@ -52,9 +52,9 @@ Excellent. Those two keys would do very nicely in our quest to squelch the netwo
 
 # Progress made
 
-With a good selection of prospective preference keys in hand the next step was to figure out *where* `mds` and/or Spotlight actually look for them. As a Hopper apprentice I usually start a search for possible preference file locations with a string search for *".plist"* as seen in Figure 3.<figure id="attachment_579" class="thumbnail wp-caption aligncenter" style="width: 510px">
+With a good selection of prospective preference keys in hand the next step was to figure out *where* `mds` and/or Spotlight actually look for them. As a Hopper apprentice I usually start a search for possible preference file locations with a string search for *".plist"* as seen in Figure 3.
 
-<img src="http://enterprisemac.bruienne.com/wp-content/uploads/2015/09/mds-hopper-3.png" alt="Figure 3" width="500" height="377" class="size-full wp-image-579" /><figcaption class="caption wp-caption-text">Figure 3 - ".plist" search</figcaption></figure>
+<img src="{{ site.baseurl }}static/mds-hopper-3.png" alt="Figure 3" width="500" height="377" class="size-full wp-image-579" /><em>Figure 3 - ".plist" search</em>
 
 There are some good leads here, but it would be better to figure out exactly which of these plist files (or another one entirely) is where we'd want to write one of the two candidate keys to for testing. Through a little bit of crowdsourcing of opinions with the [Mac Admins Slack team](https://macadmins.slack.com/) and especially the help from [@frogor](https://twitter.com/mikeymikey) aka Mike Lynn in the #python channel I was able to determine the correct file. In an earlier search for *"Preferences"* I also found a reference to the `kMDSPreferencesName` variable which is used in direct relation to the `ExternalVolumes*` keys but I was unable to find a reference to the actual file it points to using Hopper. Calling upon Mike Lynn's notorious (and some would say legendary) [Python skills](http://michaellynn.github.io/2015/08/08/learn-you-a-better-pyobjc-bridgesupport-signature/) resulted in him whipping up [this code](https://gist.github.com/pudquick/ac8f22326f095ed2690e) which uses very clever PyObjc calls to determine the value of the variable `kMDSPreferencesName` - in this case `/Library/Preferences/com.apple.SpotlightServer.plist`. The exercise of finding this information inspired Mike to write up a more generic post on how to use the methods in this bit of code to get the kind of info I was looking for, so keep an eye on [his blog](http://michaellynn.github.io/) for that.
 
@@ -78,7 +78,7 @@ Success! Now `mds` is ignoring this and all other external volumes entirely and 
 
 To make testing this in other environments easier I am providing two profiles that set either the `ExternalVolumesIgnore` or `ExternalVolumesDefaultOff` key for deployment. Remember: test, test and then test again!
 
-Sample configuration profile: [ExternalVolumesDefaultOff](https://umich.box.com/s/jh5pc47bht2r00sgmh625yfc6pdhif8e)  
-Sample configuration profile: [ExternalVolumesIgnore](https://umich.box.com/s/0zgpg1d65jn9w6fnoca6c2dk49q7mvqk)
+Sample configuration profile: [ExternalVolumesDefaultOff]({{ site.baseurl }}static/org.my.disablenexternalvolumesdefaultoff.mobileconfig)  
+Sample configuration profile: [ExternalVolumesIgnore]({{ site.baseurl }}static/org.my.disablenexternalvolumesignore.mobileconfig)
 
- [1]: http://enterprisemac.bruienne.com/wp-content/uploads/2015/09/mds-hopper-1.png
+ [1]: {{ site.baseurl }}static/mds-hopper-1.png
