@@ -159,4 +159,4 @@ If you can't (or won't) use Python and prefer using a different language wrapper
 
 ## Conclusion
 
-As always I am hopeful this helps someone out there to come up with an integration that serves their organization's specific needs. Issues and pull requests that fix issues are always welcomed as well. For a more direct discussion or questions about DEPy please come join over 3,000 of your fellow Mac Admins on the [Mac Admins Slack](https://macadmins.herokuapp.com/) where I am **@bruiene** or find me on [Twitter](https://twitter.com/bruienne) if your question fits in 140 characters or less.
+As always I am hopeful this helps someone out there to come up with an integration that serves their organization's specific needs. Issues and pull requests that fix issues are always welcomed as well. For a more direct discussion or questions about DEPy please come join over 3,000 of your fellow Mac Admins on the [Mac Admins Slack](https://macadmins.herokuapp.com/) where I am **@bruienne** or find me on [Twitter](https://twitter.com/bruienne) if your question fits in 140 characters or less.
