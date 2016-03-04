@@ -2,18 +2,20 @@
 title: Kext Friends Forever
 author: pepijn
 layout: post
-permalink: /2016/03/04/kext-friends-forever/
-categories:
+permalink: "/2016/03/04/kext-friends-forever/"
+categories: 
   - Wifi
   - Networking
   - Opinion
   - Apple
   - Security
-tags:
+tags: 
   - management
   - wifi
   - networking
+published: true
 ---
+
 
 
 ## Introduction
@@ -57,11 +59,13 @@ As the full breadth of the failure was unfolding I and a few others on the [Maca
 So if the Apple Ethernet kexts were not the intended changes, what was? In [diffing](http://bit.ly/1Tfk8M3) the contents of the two files it became clear that only one file really changed: `Info.plist`. Among others this file contains a simple `OSKextExcludeList` that lists kext identifiers and version comparison, which is where the Apple Ethernet kexts also ended up. As part of comparing the differences I noticed two other major changes:
 
 - A kext named `com.spyresoft.dockmod.driver` of version `1` was blocked:
-
 ```
 <key>com.spyresoft.dockmod.driver</key>
 <string>1</string>
 ```
 
-- A sizeable selection of Hackintosh-related kexts had been removed
-	- Examples of these were org.netkas.fakesmc entries
+- A sizeable selection of Hackintosh-related kexts had been removed from the `OSKextSigExceptionHashList` which serves the opposite purpose: it serves as a whitelist so the removals mean they are no longer condoned, likely due to their likely lack of signing.
+```
+<string>org.netkas.driver.FakeSMC	1307</string>
+<key>0040423890f8ea380c181a813efa6ae0bf102f45</key>
+```
