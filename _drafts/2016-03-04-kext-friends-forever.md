@@ -56,7 +56,7 @@ To their credit, Apple quickly identified the problem and posted a detailed KB a
 As the full breadth of the failure was unfolding I and a few others on the [Macadmins Slack](http://macadmins.org/) were wondering to what end all of this was being done. Most of us were unaware of this kext blacklist or how it could be updated out of sight of the user, if left unmanaged.
 
 ### Ch-ch-changes
-So if the Apple Ethernet kexts were not the intended changes, what was? In [diffing](http://bit.ly/1Tfk8M3) the contents of the two files it became clear that only one file really changed: `Info.plist`. Among others this file contains a simple `OSKextExcludeList` that lists kext identifiers and version comparison, which is where the Apple Ethernet kexts also ended up. As part of comparing the differences I noticed two other major changes:
+So if the Apple Ethernet kexts were not the intended changes, what was? In [diffing](http://bit.ly/1Tfk8M3) the contents of the two files it became clear that only one file really changed: `Info.plist`. Besides expected standard contents for an `Info.plist` file it contains two lists specific to the `AppleKextExcludeList` kext's purpose. The first list is named `OSKextExcludeList` which contains kext identifiers and their identifier, which is where the Apple Ethernet kexts also ended up. The other list is named `OSKextSigExceptionHashList` and serves the opposite purposes as a whitelist of explicitly allowed kexts. As part of comparing the differences I noticed two other major changes:
 
 A kext named `com.spyresoft.dockmod.driver` of version `1` was added to `OSKextExcludeList`:
 
@@ -65,7 +65,7 @@ A kext named `com.spyresoft.dockmod.driver` of version `1` was added to `OSKextE
 <string>1</string>
 ```
 
-A sizeable selection of Hackintosh-related kexts had been removed from the `OSKextSigExceptionHashList` which serves the opposite purpose of `OSKextExcludeList` - it serves as a whitelist of explicitly allowed kexts. The removals indicate they are no longer condoned, likely due to their likely lack of signing.
+A sizeable selection of Hackintosh-related kexts had been removed from the `OSKextSigExceptionHashList`. Since this update applied to OS X 10.11 only, this may simply be due to SIP and its enforcement of kext signing, which kexts needed for Hackintosh needs will never be able to obtain.
 
 ```
 <string>org.netkas.driver.FakeSMC	1307</string>
