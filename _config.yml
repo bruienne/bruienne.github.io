@@ -37,4 +37,4 @@ theme:
 
 prose:
   siteurl: 		  'http://enterprisemac.bruienne.com'
-  media:		  'static'
+  media:		  'http://enterprisemac.bruienne.com/static'
