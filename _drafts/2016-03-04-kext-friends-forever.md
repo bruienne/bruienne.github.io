@@ -97,6 +97,6 @@ And shortly after he posted that the kext is also capable of being used as malwa
 
 > So it seems you can use DockMod to inject arbitrary signed library at least against Dock process :X
 
->So it seems like that DockMod might be a nice free injection kernel driver for malware authors ;-) OOOOOOPPPPSSSSS ;-)
+> So it seems like that DockMod might be a nice free injection kernel driver for malware authors ;-) OOOOOOPPPPSSSSS ;-)
 
 
