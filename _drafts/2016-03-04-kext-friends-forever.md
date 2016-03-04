@@ -1,15 +1,15 @@
 ---
-published: false
+title: Kext Friends Forever
 author: pepijn
 layout: post
-permalink: "/2016/03/04/kext-friends-forever/"
-categories: 
+permalink: /2016/03/04/kext-friends-forever/
+categories:
   - Wifi
   - Networking
   - Opinion
   - Apple
   - Security
-tags: 
+tags:
   - management
   - wifi
   - networking
@@ -27,7 +27,7 @@ All of this continued black eye-inducing lack of QA brings us to the most recent
 ### How? Also, what?
 While the how, the what and the fixes have been [written up elsewhere](https://derflounder.wordpress.com/2016/02/28/apple-security-update-blocks-apple-ethernet-drivers-on-el-capitan/) I will quickly run through the actual mechanism that made it possible for Apple to carry out a rather efficient DDoS attack on its own OS X platform by straight up disabling network interfaces instead of going at it the hard way by flooding them with traffic.
 
-As part of the OS X Software Update mechanism Apple distributes certain updates that it deems to be of a higher priority, such as Gatekeeper and XProtect updates both of which deal with malware and system security. These items are given their own identifying type in the Software Update realm, named `config-data`. These items are represented in the App Store preference pane by a separate checkbox labeled _"Install system data files and security updates"_. 
+As part of the OS X Software Update mechanism Apple distributes certain updates that it deems to be of a higher priority, such as Gatekeeper and XProtect updates both of which deal with malware and system security. These items are given their own identifying type in the Software Update realm, named `config-data`. These items are represented in the App Store preference pane by a separate checkbox labeled _"Install system data files and security updates"_.
 
 ![AppStorePrefs.jpg]({{site.baseurl}}/static/AppStorePrefs.jpg)
 
@@ -58,7 +58,8 @@ So if the Apple Ethernet kexts were not the intended changes, what was? In [diff
 
 - A kext named `com.spyresoft.dockmod.driver` of version `1` was blocked:
 
-```<key>com.spyresoft.dockmod.driver</key>
+```
+<key>com.spyresoft.dockmod.driver</key>
 <string>1</string>
 ```
 
