@@ -93,13 +93,19 @@ Around that same time I noticed a series of tweets from noted OS X security rese
 
 > LOL This DockMod thing ripped off my code ;-) Like 99,9% pretty sure about it regarding the injection in the signed driver ;-)
 
+[https://twitter.com/osxreverser/status/701544572736905216](https://twitter.com/osxreverser/status/701544572736905216)
+
 And shortly after he posted that the kext is also capable of being used as malware:
 
 > So it seems you can use DockMod to inject arbitrary signed library at least against Dock process :X
 
+[https://twitter.com/osxreverser/status/701561209288572929](https://twitter.com/osxreverser/status/701561209288572929)
+
 And shortly after:
 
 > So it seems like that DockMod might be a nice free injection kernel driver for malware authors ;-) OOOOOOPPPPSSSSS ;-)
+
+[https://twitter.com/osxreverser/status/701561433524461568](https://twitter.com/osxreverser/status/701561433524461568)
 
 So. That's bad, probably. And we now know why Apple pushed out an update with just the one change, albeit while creating way more noise than they probably had intended to.
 
