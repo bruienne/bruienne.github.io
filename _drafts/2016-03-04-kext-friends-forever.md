@@ -101,4 +101,9 @@ And shortly after:
 
 > So it seems like that DockMod might be a nice free injection kernel driver for malware authors ;-) OOOOOOPPPPSSSSS ;-)
 
+So. That's bad, probably. And we now know why Apple pushed out an update with just the one change, albeit while creating way more noise than they probably had intended to.
 
+## Conclusion
+So what have we learned? For one, there are even more areas in which Apple's QA and/or vetting seems to be lacking. Not only did a badly flubbed automatic securit update make it into production, it was sent out because the kext signing approval process apparently not catch the developer's history of code injection and their intended kext-based workaround for SIP. Worse even than that, the ability for the developer to ship a signed kext provided a potential platform for malicious operators to abuse the application to inject their own malware.
+
+It is now also clear why Apple took the additional step of blacklisting the kext besides undoubtedly also revoking the developer's kext signing certificate. One can only wonder what other developers have been able to sneak kext-signing requests past Apple and what's lurking out there still. For now Dockmod will be crippled on El Capitan at least.
