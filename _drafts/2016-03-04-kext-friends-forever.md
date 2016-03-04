@@ -1,6 +1,20 @@
 ---
 published: false
+author: pepijn
+layout: post
+permalink: "/2016/03/04/kext-friends-forever/"
+categories: 
+  - Wifi
+  - Networking
+  - Opinion
+  - Apple
+  - Security
+tags: 
+  - management
+  - wifi
+  - networking
 ---
+
 
 ## Introduction
 After this past weekend's kext-ageddon it once again became clear that Apple seems to have a problem with QA when it comes to OS X, as discussed on [this week's](http://atp.fm/episodes/159) Accidental Tech Podcast episode. While there are many areas of OS X where poor QA will likely go unnoticed by users until a later update fixes whatever QA missed, Apple has been unfortunate as of late with the specific areas of its OS X that were hit by poor QA.
