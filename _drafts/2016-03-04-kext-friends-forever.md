@@ -87,4 +87,14 @@ Apple maintains a page (Developer login required) at [https://developer.apple.co
 
 > A kext signing certificate will not be issued for products that bypass OS X security features such as System Integrity Protection. For more information please see the System Integrity Protection Guide.
 
-It seemed pretty clear that Dockmod had apparently been granted kext signing abilities for their product __specifically to bypass SIP features preventing code injection__.
+It seemed pretty clear that Dockmod had apparently been granted kext signing abilities for their product __specifically to bypass SIP features preventing code injection__. That seemed kind of shocking.
+
+Around that same time I noticed a series of tweets from noted OS X security researcher [@osxreverser](https://twitter.com/osxreverser). He had apparently stumbled across Dockmod too and found some familiar code inside:
+
+> LOL This DockMod thing ripped off my code ;-) Like 99,9% pretty sure about it regarding the injection in the signed driver ;-)
+
+And shortly after he posted that the kext is also capable of being used as malware:
+
+> So it seems you can use DockMod to inject arbitrary signed library at least against Dock process :X
+
+
