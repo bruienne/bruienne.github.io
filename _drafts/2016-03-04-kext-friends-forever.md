@@ -3,13 +3,13 @@ title: Kext Friends Forever
 author: pepijn
 layout: post
 permalink: "/2016/03/04/kext-friends-forever/"
-categories: 
+categories:
   - Wifi
   - Networking
   - Opinion
   - Apple
   - Security
-tags: 
+tags:
   - management
   - wifi
   - networking
@@ -31,7 +31,7 @@ While the how, the what and the fixes have been [written up elsewhere](https://d
 
 As part of the OS X Software Update mechanism Apple distributes certain updates that it deems to be of a higher priority, such as Gatekeeper and XProtect updates both of which deal with malware and system security. These items are given their own identifying type in the Software Update realm, named `config-data`. These items are represented in the App Store preference pane by a separate checkbox labeled _"Install system data files and security updates"_.
 
-![AppStorePrefs.jpg]({{site.baseurl}}/static/AppStorePrefs.jpg)
+![AppStorePrefs.jpg]({{ site.baseurl }}static/AppStorePrefs.jpg)
 
 The possible impact of disabling system data files and security updates by Mac Admins who manage their own Apple updates through other means has previously been covered by Tim Sutton in [this post](https://macops.ca/os-x-admins-your-clients-are-not-getting-background-security-updates). Most home users will not make changes to the schedule and thus will automatically receive these `config-data` updates. Clearly this is the desired state in order to guarantee users have baseline protection against emerging malware.
 
@@ -56,7 +56,7 @@ To their credit, Apple quickly identified the problem and posted a detailed KB a
 As the full breadth of the failure was unfolding I and a few others on the [Macadmins Slack](http://macadmins.org/) were wondering to what end all of this was being done. Most of us were unaware of this kext blacklist or how it could be updated out of sight of the user, if left unmanaged.
 
 ### Ch-ch-changes
-So if the Apple Ethernet kexts were not the intended changes, what was? In [diffing](http://bit.ly/1Tfk8M3) the contents of the two files it became clear that only one file really changed: `Info.plist`. Besides expected standard contents for an `Info.plist` file it contains two lists specific to the `AppleKextExcludeList` kext's purpose. The first list is named `OSKextExcludeList` which contains kext identifiers and their identifier, which is where the Apple Ethernet kexts also ended up. The other list is named `OSKextSigExceptionHashList` and serves the opposite purposes as a whitelist of explicitly allowed kexts. As part of comparing the differences I noticed two other major changes:
+So if the Apple Ethernet kexts were not the intended changes, what was? In [diffing](http://bit.ly/1Tfk8M3) the contents of the two files it became clear that only one file really changed: `Info.plist`. Besides expected standard contents for an `Info.plist` file it contains two lists specific to the `AppleKextExcludeList` kext's purpose. The first list is named `OSKextExcludeList` which contains kext identifiers and their identifier, which is where the Apple Ethernet kexts also ended up. The other list is named `OSKextSigExceptionHashList` and serves the opposite purpose as a whitelist of explicitly allowed kexts. As part of comparing the differences I noticed two other major changes:
 
 A kext named `com.spyresoft.dockmod.driver` of version `1` was added to `OSKextExcludeList`:
 
@@ -73,7 +73,7 @@ A sizeable selection of Hackintosh-related kexts had been removed from the `OSKe
 ```
 
 ### Mod my what?
-Since only one kext was actually added, let's try to find out what this thing does, shall we? A quick search for Spyresoft Dockmod leads us to a shiny product page: [https://www.spyresoft.com/dockmod/](https://www.spyresoft.com/dockmod/) 
+Since only one kext was actually added, let's try to find out what this thing does, shall we? A quick search for Spyresoft Dockmod leads us to a shiny product page: [https://www.spyresoft.com/dockmod/](https://www.spyresoft.com/dockmod/)
 
 On it, we find out that Dockmod offers users a nice GUI to modify their Dock layout. Nomen est omen then, it does what it says. Next we take a look at why this fine-looking app might be banned so harshly by Apple. It certainly looks benign. Searching the product page for "kernel extension" gets us a result from the FAQ section titled _"Is it safe? How does it actually modify the dock?"_
 
@@ -95,7 +95,7 @@ Around that same time I noticed a series of tweets from noted OS X security rese
 
 [https://twitter.com/osxreverser/status/701544572736905216](https://twitter.com/osxreverser/status/701544572736905216)
 
-And shortly after he posted that the kext is also capable of being used as malware:
+And shortly after he posted that the kext is also capable of doing additional code injection:
 
 > So it seems you can use DockMod to inject arbitrary signed library at least against Dock process :X
 
@@ -112,4 +112,4 @@ So. That's bad, probably. And we now know why Apple pushed out an update with ju
 ## Conclusion
 So what have we learned? For one, there are even more areas in which Apple's QA and/or vetting seems to be lacking. Not only did a badly flubbed automatic security update make it into production, it was sent out because the kext signing approval process did not catch the developer's history of code injection and their intended kext-based workaround for SIP. Worse even, the ability of the developer to ship a signed kext provided a potential platform for malicious operators to abuse the application to inject their own malware.
 
-It is now also clear why Apple took the additional step of blacklisting the kext besides undoubtedly also revoking the developer's kext signing certificate. One can only wonder what other developers have been able to sneak kext-signing requests past Apple and what's lurking out there still. At least for now Dockmod will be crippled on El Capitan.
+It is now also clear why Apple took the additional step of blacklisting the kext besides undoubtedly also revoking the developer's kext signing certificate. One can only wonder what other developers have been able to sneak kext-signing requests past Apple and what's lurking out there still. At least for now Dockmod will be unable to do any harm for El Capitan users.
