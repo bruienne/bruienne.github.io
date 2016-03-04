@@ -79,4 +79,10 @@ On it, we find out that Dockmod offers users a nice GUI to modify their Dock lay
 
 > Dockmod 4 for El Capitan does not modify any system files. Apple introduced a new security policy on OS X El Capitan (System Integrity Protection, aka Rootless) that prevents modification of system files, even by privileged processes. This policy also prevents code injection into system processes. No previous injection method used could be modified to work with this new policy. To get around these measures and still achieve code injection, Dockmod 4 utilizes a signed kernel extension (KEXT) to handle the injection. Overall, this is the safest, most stable Dockmod yet, as no files are modified and everything is done dynamically at runtime.
 
-Interesting.
+Interesting. Code injection. A quick read about how older versions work reveals more talk of code injection, so this is clearly a path the developer(s) have chosen. Something that stands out in the description of how the app works in El Capitan is the fact that a kext is now _required_ in order to work around SIP limitations. This seems to be at odds with how Apple might see this issue.
+
+Since I knew Apple has a page for registered developers to request the ability to sign kexts to be added to their account I figured I would go see what the official word on this kind of thing is.
+
+Apple maintains a page (Developer login required) at [https://developer.apple.com/contact/kext/](https://developer.apple.com/contact/kext/) where developers can request kext signing abilities for their account. Apple presents three intended use cases: Personal Use, Testing and Consumer or Enterprise Distribution. Of those three options only one states that the developer actually needs to sign their kext. For Personal Use Apple recommends disabling the kext signing requirement with aforementioned `csrutil enable --without kext` while for Testing they recommend Kext Developer Mode. For Consumer or Enterprise Distribution the developer can submit an actual request with the product's Organization, Company or Product URL and a Reason for request description. At the bottom of this form the following disclaimer caught my eye:
+
+> A kext signing certificate will not be issued for products that bypass OS X security features such as System Integrity Protection. For more information please see the System Integrity Protection Guide.
