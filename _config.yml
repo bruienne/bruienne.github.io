@@ -34,3 +34,7 @@ theme:
   author:         Mark Otto
   url:            https://twitter.com/mdo
   repo:           https://github.com/poole/hyde
+
+prose:
+  siteurl: 		  'http://enterprisemac.bruienne.com'
+  media:		  'static'
