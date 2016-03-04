@@ -40,5 +40,13 @@ To their credit, Apple quickly identified the problem and posted a detailed KB a
 As the full breadth of the failure was unfolding I and a few others on the [Macadmins Slack](http://macadmins.org/) were wondering to what end all of this was being done. Most of us were unaware of this kext blacklist or how it could be updated out of sight of the user, if left unmanaged.
 
 ### Ch-ch-changes
-So if the Apple Ethernet kexts were not the intended changes, what was? In [diffing](http://bit.ly/1Tfk8M3) the contents of the two files it became clear that only one file really changed: `Info.plist`. Among others this file contains a simple `OSKextExcludeList` that lists kext identifiers and version comparison, which is where the Apple Ethernet kexts also ended up. As part of comparing the differences I noticed two other major changes
-- A kext na
+So if the Apple Ethernet kexts were not the intended changes, what was? In [diffing](http://bit.ly/1Tfk8M3) the contents of the two files it became clear that only one file really changed: `Info.plist`. Among others this file contains a simple `OSKextExcludeList` that lists kext identifiers and version comparison, which is where the Apple Ethernet kexts also ended up. As part of comparing the differences I noticed two other major changes:
+
+- A kext named `com.spyresoft.dockmod.driver` of version `1` was blocked:
+
+```<key>com.spyresoft.dockmod.driver</key>
+<string>1</string>
+```
+
+- A sizeable selection of Hackintosh-related kexts had been removed
+	- Examples of these were org.netkas.fakesmc entries
