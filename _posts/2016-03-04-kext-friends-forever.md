@@ -66,7 +66,7 @@ A kext named `com.spyresoft.dockmod.driver` of version `1` was added to `OSKextE
 <string>1</string>
 ```
 
-A sizeable selection of Hackintosh-related kexts had been removed from the `OSKextSigExceptionHashList`. Since this update applied to OS X 10.11 only, this may simply be due to SIP and its enforcement of kext signing, which kexts needed for Hackintosh needs will never be able to obtain.
+A sizeable selection of Hackintosh-related kexts had been removed from the `OSKextSigExceptionHashList`. Since this update applied to OS X 10.11 only, this may simply be due to SIP and its enforcement of kext signing, which kexts intended for Hackintosh use will never be able to obtain.
 
 ```
 <string>org.netkas.driver.FakeSMC	1307</string>
