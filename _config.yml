@@ -18,7 +18,7 @@ baseurl:          /
 excerpt_separator: <!--more-->
 
 author:
-  name:           'Pepijn bruienne'
+  name:           'Pepijn Bruienne'
   url:            https://twitter.com/bruienne
 
 paginate:         8
