@@ -19,6 +19,7 @@ published: true
 
 
 
+
 ## Introduction
 After this past weekend's kext-ageddon it once again became clear that Apple seems to have a problem with QA when it comes to OS X, as discussed on [this week's](http://atp.fm/episodes/159) Accidental Tech Podcast episode. While there are many areas of OS X where poor QA will likely go unnoticed by users until a later update fixes whatever QA missed, Apple has been unfortunate as of late with the specific areas of its OS X that were hit by poor QA.
 
@@ -32,7 +33,7 @@ While the how, the what and the fixes have been [written up elsewhere](https://d
 
 As part of the OS X Software Update mechanism Apple distributes certain updates that it deems to be of a higher priority, such as Gatekeeper and XProtect updates both of which deal with malware and system security. These items are given their own identifying type in the Software Update realm, named `config-data`. These items are represented in the App Store preference pane by a separate checkbox labeled _"Install system data files and security updates"_.
 
-![AppStorePrefs.jpg]({{ site.baseurl }}static/AppStorePrefs.jpg)
+![AppStorePrefs.jpg](http://enterprisemac.bruienne.com/static/AppStorePrefs.jpg)
 
 The possible impact of disabling system data files and security updates by Mac Admins who manage their own Apple updates through other means has previously been covered by Tim Sutton in [this post](https://macops.ca/os-x-admins-your-clients-are-not-getting-background-security-updates). Most home users will not make changes to the schedule and thus will automatically receive these `config-data` updates. Clearly this is the desired state in order to guarantee users have baseline protection against emerging malware.
 
