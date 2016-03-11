@@ -36,5 +36,5 @@ theme:
   repo:           https://github.com/poole/hyde
 
 prose:
-  siteurl: 		  http://enterprisemac.bruienne.com
-  media:		  http://enterprisemac.bruienne.com/static
+  siteurl: 		  'http://enterprisemac.bruienne.com'
+  media:		  'http://enterprisemac.bruienne.com/static'
