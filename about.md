@@ -4,6 +4,9 @@ title: About
 published: true
 ---
 
+
+![.self](http://enterprisemac.bruienne.com/static/19e67d0.jpg)
+
 Thanks for visiting my personal tech blog, Enterprise Mac.
 
 My name is Pepijn Bruienne and I'm a Mac Admin at the University of Michigan in Ann Arbor, MI. All opinions expressed on this blog are mine and not those of my employer.
