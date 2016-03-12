@@ -5,13 +5,13 @@ published: true
 ---
 
 
+
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">{{ page.date | date_to_string }} by {{ site.author.name }}</span>
   {{ content }}
 </div>
 
-{% if page.comments %}
 
   <div id="disqus_thread"></div>
   <script>
@@ -35,7 +35,6 @@ published: true
   })();
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-{% endif %}
 
 <div class="related">
   <h2>Related Posts</h2>
