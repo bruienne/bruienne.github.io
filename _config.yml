@@ -29,7 +29,7 @@ version:          1.0
 github:
   repo:           https://github.com/bruienne/bruienne.github.io
 
-theme:
+sitetheme:
   name:           Hyde
   author:         Mark Otto
   url:            https://twitter.com/mdo
