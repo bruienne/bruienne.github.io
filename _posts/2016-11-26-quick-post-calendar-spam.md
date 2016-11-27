@@ -24,4 +24,4 @@ By default iCloud automatically adds calendar invites to a user's pending events
 ### Just stop.
 Agreed. So to wrap up other more long-winded explanations on how to do this I whipped out trusty Preview.app (in keeping with my stdlib or GTFO credo) and put together the following Twitter-friendly graphical how-to.
 
-![Calendar spam infographic](static/Calendar-spam.jpg)
+![Calendar spam infographic](http://enterprisemac.bruienne.com/static/Calendar_spam.jpg)
