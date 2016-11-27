@@ -11,7 +11,7 @@ categories:
 tags:
   - calendar
   - spam
-published: false
+published: true
 ---
 
 ## Quick Post - iCloud calendar spam
