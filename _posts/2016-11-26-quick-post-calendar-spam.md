@@ -14,7 +14,7 @@ tags:
 published: true
 ---
 
-## Quick Post - iCloud calendar spam
+## Introduction
 
 Since iCloud calendar spam suddenly appears to be [a thing](https://twitter.com/bruienne/status/802174492000874496) and a bunch of folks both [asked](https://twitter.com/latteine/status/802192190168567808) me about it and offered [possible solutions](https://twitter.com/swy/status/802263392027283456) I whipped up a quick infographic on how to deal with it, or at least how to make it less annoying by being able to filter it.
 
