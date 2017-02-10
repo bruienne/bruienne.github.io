@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 author: pepijn
 layout: post
 permalink: /2017-02-10-macaduk-2017-slides/
