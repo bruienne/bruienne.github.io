@@ -23,4 +23,4 @@ While we were all together in one place the hosts of the [Macadmins.org Podcast]
 
 A huge THANK YOU to the conference organizers and the entire team that made this year another success, I am honored to have been allowed to speak again.
 
-You can grab the slides [right here.](static/Securing%20the%20managed%20environment.pdf)
+You can grab the slides [right here.](/static/Securing%20the%20managed%20environment.pdf)
