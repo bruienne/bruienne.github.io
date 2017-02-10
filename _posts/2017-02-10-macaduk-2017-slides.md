@@ -1,5 +1,17 @@
 ---
 published: false
+author: pepijn
+layout: post
+permalink: /2017-02-10-macaduk-2017-slides/
+categories:
+  - Conference
+  - MacAD UK 2017
+  - Apple
+  - Security
+tags:
+  - conference
+  - macaduk
+  - security
 ---
 ## Mac AD UK 2017 slides are available
 
