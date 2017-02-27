@@ -3,7 +3,7 @@ published: false
 ---
 ## Quickpost
 
-To help others playing around with APFS, wishing to boot from an APFS-formatted volume here's a quick post documenting the current process as of 10.12.4 beta 4 (16E175b) This is currently the quickest way to take an existing HFS boot volume, convert it to APFS and configure it for booting. Going forward you should be working with a non-production test system that you can afford to lose in any horrible APFS conversion accidents. I used a VMware Fusion VM without trouble.
+To help others playing around with APFS, wishing to boot from an APFS-formatted volume here's a quick post documenting the current process as of 10.12.4 beta 4 (16E175b) This is currently the quickest way to take an existing HFS boot volume, convert it to APFS and configure it for booting. Going forward you should be working with a non-production test system that you can afford to lose in any horrible APFS conversion accidents. I used a VMware Fusion VM without trouble.<--!more-->
 
 ### Prepare for APFS conversion
 
@@ -243,4 +243,8 @@ If there were no unexpected errors you'll still need to do one more thing in ord
 $ nvram boot-args="rd=disk2s1"
 ```
 
-From the Recovery partition you will not need `sudo` - anywhere else will require that `nvram` is prepended with `sudo`.
+From the Recovery partition you will not need `sudo` - run from anywhere else `nvram` will require that it is prepended with `sudo`.
+
+### Reboot
+
+If everything went right, you should now be able to boot from the APFS volume. In my experience the volume wasn't properly detected by the Startup Disk preference pane so I forced the boot volume in my tester VM using the startup disk preference in VMware Fusion. This setting overrides whatever OS preference is set, and works in our advantage here to force a boot from our newly created APFS volume. Enjoy!
