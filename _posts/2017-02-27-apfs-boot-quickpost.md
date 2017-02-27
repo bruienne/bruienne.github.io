@@ -197,6 +197,7 @@ Conversion took 27 seconds
 259,166,208 max resident set size
 
 ```
+**Success!**
 
 If the dry run doesn't come up with any catastrophic errors it should be safe to run without the `-n` safety net, so re-run the command:
 
