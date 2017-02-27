@@ -3,7 +3,7 @@ published: false
 ---
 ## Quickpost
 
-To help others playing around with APFS, wishing to boot from an APFS-formatted volume here's a quick post documenting the current process as of 10.12.4 beta 4 (16E175b) This is currently the quickest way to take an existing HFS boot volume, convert it to APFS and configure it for booting. Going forward you should be working with a non-production test system that you can afford to lose in any horrible APFS conversion accidents. I used a VMware Fusion VM without trouble.<--!more-->
+Last week, a set of tweets from [Tyler Loch](https://twitter.com/TylerLoch/status/834094783618568192) shed some [light and hope](https://twitter.com/TylerLoch/status/834096046800257024) on the quest to get an APFS boot volume going prior to Apple officially making it an option in a future macOS 10.12 version. After the fourth 10.12.4 beta was released I decided to try my previously failed attempts again, following Tyler's hints to help me along. I was finally successful, so to help others wishing to boot from an APFS-formatted volume here's a quick post documenting the current process as of 10.12.4 beta 4 (16E175b). I believe that his is currently the quickest way to take an existing HFS boot volume, convert it to APFS and configure it for booting. Going forward you should be working with a non-production test system that you can afford to lose in any horrible APFS conversion accidents. I used a VMware Fusion VM without trouble, and as I will explain towards the end of this post, using a VM is preferred. Big thanks again to [Tyler](https://twitter.com/TylerLoch) for his pointers! (BTW: Big fan of [VisualHub](http://www.macworld.com/article/1054163/visualhub.html) from way back)<!--more-->
 
 ### Prepare for APFS conversion
 
