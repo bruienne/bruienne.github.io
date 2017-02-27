@@ -1,5 +1,17 @@
 ---
 published: false
+author: pepijn
+layout: post
+permalink: /2017-02-27-apfs-boot-quickpost/
+categories:
+  - APFS
+  - Apple
+  - Beta
+  - macOS
+tags:
+  - apfs
+  - beta
+  - quickpost
 ---
 ## Quickpost
 
