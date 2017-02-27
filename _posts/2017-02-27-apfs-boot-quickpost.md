@@ -246,6 +246,6 @@ $ nvram boot-args="rd=disk2s1"
 
 From the Recovery partition you will not need `sudo` - run from anywhere else `nvram` will require that it is prepended with `sudo`.
 
-### Reboot
+### Reboot, rejoice
 
 If everything went right, you should now be able to boot from the APFS volume. In my experience the volume wasn't properly detected by the Startup Disk preference pane so I forced the boot volume in my tester VM using the startup disk preference in VMware Fusion. This setting overrides whatever OS preference is set, and works in our advantage here to force a boot from our newly created APFS volume. Enjoy!
