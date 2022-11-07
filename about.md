@@ -6,7 +6,7 @@ published: true
 
 
 
-![.self](http://enterprisemac.bruienne.com/static/19e67d0.jpg)
+![.self](https://enterprisemac.bruienne.com/static/19e67d0.jpg)
 
 Thanks for visiting my personal tech blog, Enterprise Mac.
 
