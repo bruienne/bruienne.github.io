@@ -13,7 +13,7 @@ relative_permalinks: false
 title:            Enterprise Mac
 tagline:          'Macs, Enterprise, good times.'
 description:      'Macs, Enterprise, good times.'
-url:              http://enterprisemac.bruienne.com
+url:              https://enterprisemac.bruienne.com
 baseurl:          /
 excerpt_separator: <!--more-->
 
@@ -36,5 +36,5 @@ sitetheme:
   repo:           https://github.com/poole/hyde
 
 prose:
-  siteurl: 		  'http://enterprisemac.bruienne.com'
-  media:		  'http://enterprisemac.bruienne.com/static'
+  siteurl: 		  'https://enterprisemac.bruienne.com'
+  media:		  'https://enterprisemac.bruienne.com/static'
